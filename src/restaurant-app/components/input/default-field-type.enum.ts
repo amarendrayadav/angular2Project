@@ -1,0 +1,8 @@
+export enum FieldType{
+    INPUT_TEXT,
+    INPUT_SELECT,
+    INPUT_BOOLEAN,
+    INPUT_DATE,
+    INPUT_MULTI_SELECT,
+    GENERIC_SELECT
+}

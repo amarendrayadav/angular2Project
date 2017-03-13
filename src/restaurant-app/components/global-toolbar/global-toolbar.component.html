@@ -1,0 +1,43 @@
+<div class="global-toolbar">
+    <div class="global-toolbar__wrapper _fixed">
+
+        <div class="global-toolbar__layout">
+            <a class="global-toolbar__menu" (tap)="goTo(['/vegs'])" [class._active]="is('/vegs')">
+                <i class="global-toolbar__menu-icon">
+                    <svg><use xlink:href="#icon_vegs"></use></svg>
+                </i>
+                <span class="global-toolbar__menu-text">vegs</span>
+            </a>
+            <a class="global-toolbar__menu">
+                <i class="global-toolbar__menu-icon">
+                    <svg><use xlink:href="#icon_tasks"></use></svg>
+                </i>
+                <span class="global-toolbar__menu-text">tasks</span>
+            </a>
+            <a class="global-toolbar__menu" (tap)="goTo(['/nVegs'])" [class._active]="is('/nVegs') || is('/')">
+                <i class="global-toolbar__menu-icon">
+                    <svg><use xlink:href="#icon_nVegs"></use></svg>
+                </i>
+                <span class="global-toolbar__menu-text">nVegs</span>
+            </a>
+            <a class="global-toolbar__menu" (tap)="goTo(['/deserts']) " [class._active]="is('/deserts')">
+                <i class="global-toolbar__menu-icon">
+                    <svg><use xlink:href="#icon_account"></use></svg>
+                </i>
+                <span class="global-toolbar__menu-text">deserts</span>
+            </a>
+            <a class="global-toolbar__menu" (tap)="goTo(['/drinks']) " [class._active]="is('/drinks')">
+                <i class="global-toolbar__menu-icon">
+                    <svg><use xlink:href="#icon_account"></use></svg>
+                </i>
+                <span class="global-toolbar__menu-text">drinks</span>
+            </a>
+            <a class="global-toolbar__menu">
+                <i class="global-toolbar__menu-icon">
+                    <svg><use xlink:href="#icon_search"></use></svg>
+                </i>
+                <span class="global-toolbar__menu-text">search</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+.top-search-field {
+
+    &__input&__input {
+        width: 100%;
+        border: 2px solid @color-border;
+        border-radius: 20px;
+        padding: 11px 8px 11px 38px;
+        background-position: 13px center;
+        letter-spacing: 0.025em;
+        font-size: 12px;
+        background-color: transparent;
+        .icon_search;
+
+        //noinspection CssInvalidPseudoSelector
+        &::placeholder {
+            color: @color-text-blured;
+        }
+    }
+
+    &__wrapper {
+        display: block;
+        margin: 15px 10px;
+    }
+}

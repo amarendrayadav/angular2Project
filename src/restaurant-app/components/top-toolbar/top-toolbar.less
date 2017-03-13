@@ -1,0 +1,38 @@
+/* Styles for main-navbar */
+.top-toolbar {
+  position: relative;
+  z-index: 400;
+  height: @layout-navbar-height;
+
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: @layout-navbar-height;
+    background: @color-global-navbar;
+    color: #fff;
+  }
+
+  &__layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 16px;
+  }
+
+  &__menu {
+    margin: auto;
+    height: 100%;
+  }
+
+  &__switch {
+    margin-right: 72px;
+    padding-bottom: 2px;
+  }
+
+  &__user-controls {
+    padding-bottom: 2px;
+  }
+}

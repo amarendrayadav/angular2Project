@@ -1,0 +1,18 @@
+<div class="top-toolbar">
+    <div class="top-toolbar__wrapper _fixed">
+        <div class="page__row-layout">
+
+            <div class="top-toolbar__layout">
+                <div class="top-toolbar__menu" (tap)="onLeftClick($event)">
+                    {{leftButtonText}}
+                </div>
+                <div class="top-toolbar__menu">
+                    {{header}}
+                </div>
+                <div class="top-toolbar__menu" (tap)="onRightClick($event)">
+                    {{rightButtonText}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

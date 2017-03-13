@@ -1,0 +1,49 @@
+<div class="default-input taFormField {{customClass}}" [class._focused]="focused || model">
+    <div class="default-input__label taFormLabel" *ngIf="label">
+        {{label}}
+    </div>
+
+    <div [ngSwitch]="fieldType" *ngIf="model && (model.value) && !editMode">
+        <div *ngSwitchCase="FieldType.INPUT_SELECT">
+            {{getValue().name}}
+        </div>
+        <div *ngSwitchCase="FieldType.INPUT_MULTI_SELECT">
+            <div *ngFor="let value of getValue()">{{value.name}}</div>
+        </div>
+        <div *ngSwitchDefault>
+            {{getValue()}}
+        </div>
+    </div>
+
+    <div *ngIf="genericModel && genericModel.id && !editMode">
+        {{genericModel.accountName.value}}
+    </div>
+
+    <div class="default-input__field" *ngIf="editMode" [ngSwitch]="fieldType">
+        <form #defaultInputForm="ngForm">
+            <div *ngIf="!defaultInputForm.valid && textMetaData" class="default-input__error">{{textMetaData.errorMessage}}</div>
+            <input pInputText type="text" class="default-input__input taFormInput" placeholder="{{placeholder}}" [ngModel]="getModel()"
+                (ngModelChange)="setModel($event)" [pattern]="textMetaData.regex" [required]="required" [maxlength]="textMetaData.maxLength"
+                (focus)="onFocus()" (blur)="onBlur()" *ngSwitchCase="FieldType.INPUT_TEXT" name="generateName()" />
+            <select class="default-input__input taFormInput" [ngModel]="getModel()" (ngModelChange)="setModel($event)" [required]="required"
+                (focus)="onFocus()" (blur)="onBlur()" *ngSwitchCase="FieldType.INPUT_SELECT" name="generateName()">
+            <option *ngFor="let value of valueList" [ngValue]="value">{{value.name}}</option>
+        </select>
+            <select class="default-input__input taFormInput  default-input__input__multi-select" [ngModel]="getModel()" (ngModelChange)="setModel($event)"
+                [required]="required" (focus)="onFocus()" (blur)="onBlur()" multiple="multiple" *ngSwitchCase="FieldType.INPUT_MULTI_SELECT"
+                name="generateName()">
+            <option *ngFor="let value of valueList" [ngValue]="value">{{value.name}}</option>
+        </select>
+            <select class="default-input__input taFormInput" [ngModel]="getGenericModel()" (ngModelChange)="setGenericModel($event)"
+                [required]="required" (focus)="onFocus()" (blur)="onBlur()" *ngSwitchCase="FieldType.GENERIC_SELECT" name="generateName()">
+            <option *ngFor="let value of genericList" [ngValue]="value">{{value.accountName.value}}</option>
+        </select>
+            <p-inputSwitch [onLabel]="onLabelText" [offLabel]="offLabelText" [ngModel]="getModel()" (ngModelChange)="setModel($event)"
+                [required]="required" *ngSwitchCase="FieldType.INPUT_BOOLEAN" name="generateName()">
+            </p-inputSwitch>
+            <p-calendar [showIcon]="false" [ngModel]="getModel()" (ngModelChange)="setModel($event)" [required]="required" [dateFormat]="'mm/dd/yy'"
+                *ngSwitchCase="FieldType.INPUT_DATE" name="generateName()">
+            </p-calendar>
+        </form>
+    </div>
+</div>
